@@ -1,1 +1,66 @@
 ---------- Aquí comenzamos ------------------
+
+Create database Datos_usuario_asistente-de-estudio-personal;
+
+create table asignatura_name (
+    id_asignatura_name serial primary key,
+    nombre varchar(100) not null
+);
+
+insert into asignatura_name (nombre) values
+('metodologías_ágiles'),
+('pruebas_software'),
+('requerimientos_y_prototipado'),
+('pilares_liderazgo'),
+('desarrollo_web'),
+('bases_datos_ii'),
+('desarrollo_aplicaciones_informáticas'),
+('desarrollo_personal_&_organizacional');
+
+create table asignatura_estado (
+    id_estado serial primary key,
+    estado varchar(50) not null
+);
+
+insert into asignatura_estado (estado) values
+('cursada'),
+('en_curso'),
+('reprobada'),
+('por_cursar');
+
+create table tiempo_estudio (
+    id_tiempo_estudio serial primary key,
+    duracion varchar(10) not null
+);
+
+insert into tiempo_estudio (duracion) values
+('00:30h'),
+('1:00h'),
+('1:30h'),
+('2:00h'),
+('2:30h'),
+('3:00h'),
+('3:30h'),
+('4:00h'),
+('4:30h'),
+('5:00h');
+
+create table asignatura (
+    id_asignatura serial primary key,
+    id_usuario int,
+    id_archivos int,
+    id_tiempo int,
+    id_asignatura_name int,
+    id_estado int,
+    constraint fk_asignatura_archivos foreign key (id_archivos) references archivos (id_archivos),
+    constraint fk_asignatura_name foreign key (id_asignatura_name) references asignatura_name (id_asignatura_name),
+    constraint fk_asignatura_estado foreign key (id_estado) references asignatura_estado (id_estado)
+);
+
+create table tiempo (
+    id_tiempo serial primary key,
+    id_asignatura int,
+    id_tiempo_estudio int,
+    constraint fk_tiempo_asignatura foreign key (id_asignatura) references asignatura (id_asignatura),
+    constraint fk_tiempo_estudio foreign key (id_tiempo_estudio) references tiempo_estudio (id_tiempo_estudio)
+);
