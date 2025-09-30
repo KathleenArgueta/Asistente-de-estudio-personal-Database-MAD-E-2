@@ -79,7 +79,7 @@ create table usuario(
 
 insert into usuario (user_name, user_last_name, id_carrera_name, user_age, user_email) values 
 ('Kathleen','Argueta', 1, 19, 'kathleen.argueta@gmail.com'),
-('Marco',   'Mazzini', 3, 20, 'marco.mazzini@gmail.com'),
+('Marco',   'Mazzini', 3, 19, 'marco.mazzini@gmail.com'),
 ('Esmeralda','Mejía',  4, 19, 'esmeralda.mejia@gmail.com'),
 ('Tiffany', 'Meléndez',1, 19, 'tiffany.melendez@gmail.com'),
 ('Joseph',  'Lyon',    2, 19, 'joseph.lyon@gmail.com'),
